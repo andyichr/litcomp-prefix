@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -e
-set -x
 
 . src/sh/env.sh
 
@@ -30,6 +29,7 @@ popd
 
 for STAGE in $STAGES; do
 	[ "$STAGE" -ge "$START_STAGE" ] && ( find ../src/sh/make.d/$STAGE -type f -name "*.sh" | ( [ "$PACKAGE" == "*" ] && cat || grep "/$PACKAGE.sh$" ) | while read PKG_SCRIPT; do
+		echo "Building $( basename $PKG_SCRIPT )..."
 		bash $PKG_SCRIPT > $SRCDIR/.build/$( basename $PKG_SCRIPT ).stdout 2> $SRCDIR/.build/$( basename $PKG_SCRIPT ).stderr
 	done )
 done
