@@ -1,2 +1,2 @@
 run:
-	./src/sh/make.sh "$(shell pwd)/prefix"
+	./src/sh/make.sh "$(shell pwd)"
