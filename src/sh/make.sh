@@ -25,7 +25,7 @@ cd .build
 
 # execute stages
 pushd ../src/sh/make.d
-	export STAGES=$(find . -maxdepth 1 -mindepth 1 -type d | sed -e 's,^./,,' | sort)
+	export STAGES=$( find . -maxdepth 1 -mindepth 1 -type d | sed -e 's,^./,,' | sort )
 popd
 
 for STAGE in $STAGES; do
