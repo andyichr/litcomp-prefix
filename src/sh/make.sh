@@ -20,7 +20,13 @@ cd .build
 for STAGE in $STAGES; do
 	[ "$STAGE" -ge "$START_STAGE" ] && ( find ../src/sh/make.d/$STAGE -type f -name "*.sh" | ( [ "$PACKAGE" == "*" ] && cat || grep "/$PACKAGE.sh$" ) | while read PKG_SCRIPT; do
 		echo "Building $( basename $PKG_SCRIPT )..."
-		bash $PKG_SCRIPT > $SRCDIR/.build/$( basename $PKG_SCRIPT ).stdout 2> $SRCDIR/.build/$( basename $PKG_SCRIPT ).stderr
+		bash $PKG_SCRIPT > "$SRCDIR"/.build/$( basename $PKG_SCRIPT ).stdout 2> "$SRCDIR"/.build/$( basename $PKG_SCRIPT ).stderr || {
+			echo "Error: "
+			set -x
+			tail "$SRCDIR"/.build/$( basename $PKG_SCRIPT ).stderr
+			set +x
+			echo "Check .build/ for log output"
+		}
 	done )
 done
 
