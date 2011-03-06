@@ -1,0 +1,3 @@
+[submodule "litcomp"]
+	path = litcomp
+	url = git://github.com/andyichr/litcomp.git
