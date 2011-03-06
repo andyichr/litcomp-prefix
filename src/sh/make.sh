@@ -16,15 +16,14 @@ fi
 
 export PACKAGE START_STAGE
 
-if [ ! -d .build ]; then
-	mkdir .build
-fi
+test -d .build || mkdir .build
 
 # execute stages
 cd "$SRCDIR"/src/sh/make.d
 export STAGES=$( find . -maxdepth 1 -mindepth 1 -type d | sed -e 's,^./,,' | sort )
+cd "$SRCDIR"
 
-cd "$SRCDIR"/.build
+cd .build
 
 for STAGE in $STAGES; do
 	[ "$STAGE" -ge "$START_STAGE" ] && ( find ../src/sh/make.d/$STAGE -type f -name "*.sh" | ( [ "$PACKAGE" == "*" ] && cat || grep "/$PACKAGE.sh$" ) | while read PKG_SCRIPT; do
