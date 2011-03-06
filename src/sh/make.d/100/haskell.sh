@@ -9,7 +9,7 @@ test -d haskell || {
 	cd "$BUILD_DIR" && mv haskell.tmp haskell
 }
 
-cd haskell/haskell*
+cd haskell/ghc*
 
 ./configure --prefix="$PREFIX"
 make -j5 install
