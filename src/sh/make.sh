@@ -4,16 +4,8 @@ set -e
 
 . src/sh/env.sh
 
-if [ "$PACKAGE" == "" ]; then
-	PACKAGE="*"
-fi
-
-if [ "$STAGE" == "" ]; then
-	START_STAGE="0"
-else
-	START_STAGE="$STAGE"
-fi
-
+test "$PACKAGE" == "" && PACKAGE="*"
+test "$STAGE" == "" && START_STAGE="0" || START_STAGE="$STAGE"
 export PACKAGE START_STAGE
 
 test -d .build || mkdir .build
