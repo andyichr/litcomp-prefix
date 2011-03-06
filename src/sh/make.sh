@@ -20,12 +20,11 @@ if [ ! -d .build ]; then
 	mkdir .build
 fi
 
-cd .build
-
 # execute stages
-pushd ../src/sh/make.d
-	export STAGES=$( find . -maxdepth 1 -mindepth 1 -type d | sed -e 's,^./,,' | sort )
-popd
+cd "$SRCDIR"/src/sh/make.d
+export STAGES=$( find . -maxdepth 1 -mindepth 1 -type d | sed -e 's,^./,,' | sort )
+
+cd "$SRCDIR"/.build
 
 for STAGE in $STAGES; do
 	[ "$STAGE" -ge "$START_STAGE" ] && ( find ../src/sh/make.d/$STAGE -type f -name "*.sh" | ( [ "$PACKAGE" == "*" ] && cat || grep "/$PACKAGE.sh$" ) | while read PKG_SCRIPT; do
