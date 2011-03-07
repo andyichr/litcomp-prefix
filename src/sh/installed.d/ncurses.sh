@@ -1,1 +1,1 @@
-test -f "$PREFIX"/lib/lib*curses*
+test -f "$PREFIX"/lib/libncurses.a
