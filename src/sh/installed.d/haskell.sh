@@ -1,1 +1,1 @@
-test -d "$PREFIX"/bin/ghc
+test -f "$PREFIX"/bin/ghc
