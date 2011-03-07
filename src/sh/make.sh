@@ -12,7 +12,7 @@ test -d .build || mkdir .build
 
 # execute stages
 cd "$SRCDIR"/src/sh/make.d
-export STAGES=$( find . -maxdepth 1 -mindepth 1 -type d | sed -e 's,^./,,' | sort )
+export STAGES=$( find . -maxdepth 1 -mindepth 1 -type d | sed -e 's,^./,,' | sort -n )
 cd "$SRCDIR"
 
 cd .build
