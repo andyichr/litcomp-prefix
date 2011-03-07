@@ -7,6 +7,15 @@ export PATH="$PREFIX/bin":"$PATH"
 export REINSTALL="$2"
 export SRCDIR="$( pwd )"
 
+wget --version > /dev/null 2>&1 && {
+	curl()
+	{
+		wget -qO- "$1"
+	}
+
+	export -f curl 
+} || true
+
 reinstall()
 {
 	[ "$PACKAGE" != "*" ] || [ ! "$REINSTALL" == "reinstall" -a ! -f "$1" ]
