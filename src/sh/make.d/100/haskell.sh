@@ -12,4 +12,6 @@ test -d haskell || {
 cd haskell/ghc*
 
 ./configure --prefix="$PREFIX"
-make -j5 install
+make
+set +e
+make install
