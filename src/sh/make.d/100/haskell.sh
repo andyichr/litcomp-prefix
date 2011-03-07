@@ -13,5 +13,4 @@ cd haskell/ghc*
 
 ./configure --prefix="$PREFIX"
 make
-set +e
 make install
