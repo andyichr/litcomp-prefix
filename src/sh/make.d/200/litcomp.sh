@@ -5,5 +5,5 @@ set -x
 
 cd ../litcomp
 
-export CXX_FLAGS="-I$PREFIX/include"
+export CXX_FLAGS="-I$PREFIX/include -L$PREFIX/lib"
 make
