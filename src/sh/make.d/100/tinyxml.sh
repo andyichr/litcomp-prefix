@@ -7,12 +7,16 @@ test -d tinyxml || {
 	BUILD_DIR="$( pwd )"
 	test -d tinyxml.tmp && rm -rf tinyxml.tmp
 	mkdir tinyxml.tmp && cd tinyxml.tmp
-	curl http://downloads.sourceforge.net/project/tinyxml/tinyxml/$( pkg_version tinyxml)/tinyxml_$( pkg_version tinyxml | sed -e 's/\./_/g' ).zip | unzip
+	curl http://downloads.sourceforge.net/project/tinyxml/tinyxml/$( pkg_version tinyxml)/tinyxml_$( pkg_version tinyxml | sed -e 's/\./_/g' ).zip > tinyxml.zip
+	unzip tinyxml.zip
 	cd "$BUILD_DIR" && mv tinyxml.tmp tinyxml
 }
 
-cd tinyxml/tinyxml*
+cd tinyxml/tinyxml
 
-./configure --prefix="$PREFIX"
 make
-make install
+ar rcs libtinyxml.a *.o
+test -d "$PREFIX"/lib || mkdir "$PREFIX"/lib
+mv libtinyxml.a "$PREFIX"/lib/
+test -d "$PREFIX"/include/tinyxml || mkdir -p "$PREFIX"/include/tinyxml
+cp *.h "$PREFIX"/include/tinyxml/
