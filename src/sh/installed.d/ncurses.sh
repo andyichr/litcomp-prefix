@@ -1,1 +1,1 @@
-test -f "$PREFIX"/include/ncurses/ncurses.h
+test -f "$PREFIX"/include/ncurses/curses.h
