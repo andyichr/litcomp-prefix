@@ -15,7 +15,7 @@ test -d tinyxml || {
 cd tinyxml/tinyxml
 
 make
-ar rcs libtinyxml.a *.o
+ar rcs libtinyxml.a tinystr.o tinyxmlerror.o tinyxml.o tinyxmlparser.o
 test -d "$PREFIX"/lib || mkdir "$PREFIX"/lib
 mv libtinyxml.a "$PREFIX"/lib/
 test -d "$PREFIX"/include/tinyxml || mkdir -p "$PREFIX"/include/tinyxml
