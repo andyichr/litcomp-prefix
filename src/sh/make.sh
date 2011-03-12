@@ -29,6 +29,7 @@ for STAGE in $STAGES; do
 			tail "$SRCDIR"/.build/$PKG_NAME.stderr
 			set +x
 			echo "Check .build/ for log output"
+			exit 1
 		}
 	done )
 done
