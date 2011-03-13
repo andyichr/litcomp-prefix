@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-test -f "$PREFIX"/bin/litcomp
+exit 1
