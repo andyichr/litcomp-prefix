@@ -5,7 +5,7 @@ set -e
 export PREFIX="$1"
 export PATH="$PREFIX/bin":"$PATH"
 export REINSTALL="$2"
-export SRCDIR="$( pwd )"
+export SRCDIR="$(pwd)"
 
 wget --version > /dev/null 2>&1 && {
 	curl()
