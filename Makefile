@@ -5,4 +5,4 @@ test:
 	./src/sh/run.sh TEST
 
 clean:
-	rm -rf .build ; ( cd litcomp && make clean )
+	rm -rf .build
