@@ -9,6 +9,7 @@ make
 
 [ "$1" == "TEST" ] && {
 	make test
+	true
 } || {
 	./bin/litcompd . test/wiki
 }
