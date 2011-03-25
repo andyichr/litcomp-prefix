@@ -18,7 +18,3 @@ cat <<EOF | "$PREFIX/bin/cpan"
 yes
 yes
 EOF
-cd "$BUILD_DIR"
-
-"$PREFIX/bin/cpan" Net::OpenID::Consumer
-echo "Y" | "$PREFIX/bin/cpan" JSON
