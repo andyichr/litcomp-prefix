@@ -1,3 +1,6 @@
 [submodule "litcomp"]
 	path = litcomp
 	url = git://github.com/andyichr/litcomp.git
+[submodule "litcomp-multi"]
+	path = litcomp-multi
+	url = https://github.com/andyichr/litcomp-multi.git
