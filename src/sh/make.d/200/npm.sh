@@ -4,7 +4,7 @@ set -x
 set -e
 
 export HOME="$PREFIX/lib/npm"
-curl 'http://npmjs.org/install.sh' | npm_install=rc sh
+curl "http://npmjs.org/install.sh" | npm_install=rc sh
 
 mv "$PREFIX/bin/npm" "$PREFIX/bin/npm.orig"
 
