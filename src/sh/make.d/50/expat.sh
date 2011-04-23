@@ -5,7 +5,7 @@ set -x
 
 test -d expat || {
 	rm -rf "expat-$(pkg_version expat)"
-	curl http://downloads.sourceforge.net/project/expat/expat/$(pkg_version expat)/expat-$(pkg_version expat).tar.gz | gunzip | tar x
+	download http://downloads.sourceforge.net/project/expat/expat/$(pkg_version expat)/expat-$(pkg_version expat).tar.gz | gunzip | tar x
 	mv expat-$(pkg_version expat) expat
 }
 

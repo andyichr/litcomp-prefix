@@ -8,13 +8,19 @@ export REINSTALL="$2"
 export SRCDIR="$(pwd)"
 
 wget --version > /dev/null 2>&1 && {
-	curl()
+	download()
 	{
 		wget -qO- "$1"
 	}
 
-	export -f curl 
-} || true
+} || {
+	download()
+	{
+		curl -s "$1"
+	}
+}
+
+export -f download 
 
 reinstall()
 {

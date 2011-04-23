@@ -7,7 +7,7 @@ export PERL_VERSION=$(pkg_version perl)
 
 test -d perl || {
 	rm -rf "perl-$PERL_VERSION"
-	curl "http://www.cpan.org/src/5.0/perl-$PERL_VERSION.tar.gz" | gunzip | tar x
+	download "http://www.cpan.org/src/5.0/perl-$PERL_VERSION.tar.gz" | gunzip | tar x
 	mv perl-$PERL_VERSION perl
 }
 

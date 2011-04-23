@@ -7,7 +7,7 @@ test -d tinyxml || {
 	BUILD_DIR="$( pwd )"
 	test -d tinyxml.tmp && rm -rf tinyxml.tmp
 	mkdir tinyxml.tmp && cd tinyxml.tmp
-	curl http://downloads.sourceforge.net/project/tinyxml/tinyxml/$(pkg_version tinyxml)/tinyxml_$(pkg_version tinyxml | sed -e 's/\./_/g').zip > tinyxml.zip
+	download http://downloads.sourceforge.net/project/tinyxml/tinyxml/$(pkg_version tinyxml)/tinyxml_$(pkg_version tinyxml | sed -e 's/\./_/g').zip > tinyxml.zip
 	unzip tinyxml.zip
 	cd "$BUILD_DIR" && mv tinyxml.tmp tinyxml
 }
