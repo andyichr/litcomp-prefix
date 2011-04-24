@@ -19,6 +19,8 @@ DOCS)
 	true
 	;;
 *)
+	test -d "$(pwd)/.prefix/var/litcomp-multi" || mkdir -p "$(pwd)/.prefix/var/litcomp-multi"
+
 	./bin/litcomp-multi "$(pwd)" <(cat <<EOF
 {
 	"litcomp-multi": {
