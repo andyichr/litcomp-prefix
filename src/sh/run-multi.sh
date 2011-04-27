@@ -22,6 +22,7 @@ DOCS)
 	;;
 *)
 	test -d "$LITCOMP_PREFIX_HOME/.prefix/var/litcomp-multi" || mkdir -p "$LITCOMP_PREFIX_HOME/.prefix/var/litcomp-multi"
+	test -d "$LITCOMP_PREFIX_HOME/.prefix/var/litcomp-multi/wiki" || mkdir -p "$LITCOMP_PREFIX_HOME/.prefix/var/litcomp-multi/wiki"
 
 	./bin/litcomp-multi "$(pwd)" <(cat <<EOF
 {
@@ -46,9 +47,9 @@ DOCS)
 		"home": "$LITCOMP_HOME",
 		"data": {
 			"provider": {
-				"name": "git",
+				"name": "filesystem",
 				"config": {
-					"repository": "git://..."
+					"path": "$LITCOMP_PREFIX_HOME/.prefix/var/litcomp-multi/wiki"
 				}
 			}
 		}
