@@ -24,7 +24,8 @@ DOCS)
 	test -d "$LITCOMP_PREFIX_HOME/.prefix/var/litcomp-multi" || mkdir -p "$LITCOMP_PREFIX_HOME/.prefix/var/litcomp-multi"
 	test -d "$LITCOMP_PREFIX_HOME/.prefix/var/litcomp-multi/wiki" || mkdir -p "$LITCOMP_PREFIX_HOME/.prefix/var/litcomp-multi/wiki"
 
-	./bin/litcomp-multi "$(pwd)" <(cat <<EOF
+	if [ "$LITCOMP_PREFIX_CONFIG" == "" ]; then
+		./bin/litcomp-multi "$(pwd)" <(cat <<EOF
 {
 	"litcomp-multi": {
 		"base-url": "http://127.0.0.1:8071",
@@ -57,5 +58,9 @@ DOCS)
 }
 EOF
 )
+	else
+		./bin/litcomp-multi "$(pwd)" "$LITCOMP_PREFIX_CONFIG"
+	fi
+
 	;;
 esac
